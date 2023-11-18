@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hesap Makinesi</title>
+    <style>
+        input {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            margin: 5px;
+        }
+
+        #display {
+            width: 205px;
+            /* Genişliği arttırabilirsiniz */
+            height: 50px;
+            font-size: 20px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h2>Hesap Makinesi</h2>
+
+    <form name="calculator" weight="300">
+        <input type="text" name="display" id="display" disabled>
+        <input type="button" value="C" onclick="clearDisplay()">
+        <br>
+
+        <input type="button" value="7" onclick="addToDisplay('7')">
+        <input type="button" value="8" onclick="addToDisplay('8')">
+        <input type="button" value="9" onclick="addToDisplay('9')">
+        <input type="button" value="/" onclick="addToDisplay('/')">
+        <br>
+        <input type="button" value="4" onclick="addToDisplay('4')">
+        <input type="button" value="5" onclick="addToDisplay('5')">
+        <input type="button" value="6" onclick="addToDisplay('6')">
+        <input type="button" value="-" onclick="addToDisplay('-')">
+        
+
+        <br>
+        <input type="button" value="1" onclick="addToDisplay('1')">
+        <input type="button" value="2" onclick="addToDisplay('2')">
+        <input type="button" value="3" onclick="addToDisplay('3')">
+        <input type="button" value="+" onclick="addToDisplay('+')">
+       
+        <br>
+
+        <input type="button" value="." onclick="addToDisplay('.')">
+        <input type="button" value="0" onclick="addToDisplay('0')">
+        <input type="button" value="=" onclick="calculate()">
+        <input type="button" value="*" onclick="addToDisplay('*')">
+
+        
+        <br>
+
+    </form>
+
+    <script>
+        function addToDisplay(value) {
+            document.calculator.display.value += value;
+        }
+
+        function calculate() {
+            try {
+                document.calculator.display.value = eval(document.calculator.display.value);
+            } catch (error) {
+                document.calculator.display.value = 'Hata';
+            }
+        }
+
+        function clearDisplay() {
+            document.calculator.display.value = '';
+        }
+    </script>
+</body>
+
+</html>
